@@ -22,11 +22,31 @@ body {
 }
 h1, h3, p { margin: 0; }
 
-/* ---------- Hero ---------- */
+/* ---------- Site header (white bar with title and Data Beyond logo) ---------- */
+.site-header { background: white; border-bottom: 1px solid var(--line); }
+.site-inner {
+  max-width: 1360px; margin: 0 auto; padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue);
+}
+.site-header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; color: var(--navy); margin-top: 2px; }
+.tagline { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.site-logo {
+  flex: none; display: block; border-radius: 10px; padding: 4px;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.site-logo img { display: block; height: 64px; width: auto; }
+.site-logo:hover { opacity: 0.85; }
+.site-logo:active { transform: scale(0.97); }
+.site-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* ---------- Hero (blue band with tabs and filters) ---------- */
 .hero {
   background: var(--blue);
   color: white;
-  padding: 28px 0 96px;
+  padding: 20px 0 96px;
   position: relative;
   overflow: hidden;
 }
@@ -34,19 +54,6 @@ h1, h3, p { margin: 0; }
   max-width: 1360px; margin: 0 auto; padding: 0 28px;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
 }
-.brand { display: flex; align-items: center; gap: 14px; }
-.logo {
-  width: 42px; height: 42px; border-radius: 12px;
-  background: white;
-  display: grid; place-items: center;
-  box-shadow: 0 6px 16px -8px rgba(0,0,0,0.3);
-}
-.logo span {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--blue);
-}
-.hero h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
-.tagline { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 2px; }
 
 .live-pill {
   display: inline-flex; align-items: center; gap: 8px;
@@ -181,11 +188,13 @@ h1, h3, p { margin: 0; }
 }
 
 .foot { text-align: center; font-size: 12px; color: var(--muted); padding: 28px 0 36px; }
+.foot a { color: var(--blue); font-weight: 600; text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
 
 /* ---------- Tabs ---------- */
-.tabbar { margin-top: 22px; }
+.tabbar { margin-top: 0; }
 .tabs {
-  display: flex; gap: 24px; width: 100%;
+  display: flex; gap: 24px; flex: 1;
   border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 .tabs label {
@@ -220,9 +229,7 @@ h1, h3, p { margin: 0; }
 .pill.warn { background: #F6EAEA; color: #A8494C; }
 
 /* ---------- Embed mode (?embed=1) ---------- */
-.embed .hero { padding-top: 20px; }
-.embed .hero > .hero-inner:first-child, .embed .foot { display: none; }
-.embed .tabbar { margin-top: 0; }
+.embed .site-header, .embed .foot { display: none; }
 .embed .grid { padding-bottom: 28px; }
 
 /* ---------- Responsive ---------- */
@@ -232,6 +239,10 @@ h1, h3, p { margin: 0; }
 }
 @media (max-width: 640px) {
   .hero-inner, .grid { padding: 0 16px; }
+  .site-inner { padding: 12px 16px; gap: 12px; }
+  .site-header h1 { font-size: 19px; }
+  .tagline { font-size: 12px; }
+  .site-logo img { height: 46px; }
   .kpi { grid-column: span 12; }
   .live-pill { display: none; }
   .filters { gap: 18px; }

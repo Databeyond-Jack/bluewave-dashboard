@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bluewave Analytics</title>
-  <meta name="description" content="Interactive sample dashboard: revenue and workforce analytics with synthetic data.">
+  <title>Data Beyond Sample Dashboard</title>
+  <meta name="description" content="Interactive sample dashboard by Data Beyond: revenue and workforce analytics with synthetic data.">
+  <link rel="icon" href="assets/logo-200.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
@@ -15,20 +16,23 @@
 </head>
 <body>
 <div id="page" class="page tab-sales">
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="brand">
-        <div class="logo"><span></span></div>
-        <div>
-          <h1>Bluewave Analytics</h1>
-          <p class="tagline" id="tagline">Sample business performance</p>
-        </div>
+  <header class="site-header">
+    <div class="site-inner">
+      <div>
+        <p class="eyebrow">Data Beyond · Sample</p>
+        <h1>Data Beyond Sample Dashboard</h1>
+        <p class="tagline" id="tagline">Revenue and workforce analytics</p>
       </div>
-      <div class="live-pill only-sales"><span class="pulse"></span>Live</div>
+      <a class="site-logo" href="https://databeyond.uk/" target="_top" aria-label="Data Beyond home page">
+        <img src="assets/logo-200.png" alt="Data Beyond" width="200" height="162">
+      </a>
     </div>
+  </header>
 
+  <div class="hero">
     <div class="hero-inner tabbar">
       <div id="tab" class="tabs" role="radiogroup" aria-label="Dashboard"></div>
+      <div class="live-pill only-sales"><span class="pulse"></span>Live</div>
     </div>
 
     <div class="filters hero-inner only-sales">
@@ -40,7 +44,7 @@
       <div class="filter"><label>Department</label><div id="wf-depts" class="chips" role="group" aria-label="Department"></div></div>
       <div class="filter"><label>Location</label><div id="wf-locs" class="chips" role="group" aria-label="Location"></div></div>
     </div>
-  </header>
+  </div>
 
   <!-- Revenue tab -->
   <main class="grid only-sales">
@@ -102,7 +106,7 @@
       <div id="wf-reasons" class="chart" style="height:290px"></div></section>
   </main>
 
-  <footer class="foot">Synthetic sample data · built with Plotly.js</footer>
+  <footer class="foot">Synthetic sample data · a sample dashboard by <a href="https://databeyond.uk/" target="_top">Data Beyond</a></footer>
 </div>
 </body>
 </html>

@@ -365,7 +365,7 @@ function showTab(tab) {
 }
 
 function init() {
-  $("tagline").textContent = `Sample business performance · data through ${new Date(D.SALES_END * D.DAY_MS)
+  $("tagline").textContent = `Revenue and workforce analytics · synthetic data through ${new Date(D.SALES_END * D.DAY_MS)
     .toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" })}`;
 
   buildOptions("tab", "radio", "tab", [{ label: "Revenue", value: "sales" }, { label: "Workforce", value: "workforce" }],

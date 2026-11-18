@@ -1,4 +1,4 @@
-# Bluewave Analytics
+# Data Beyond Sample Dashboard
 
 Interactive sample dashboard: a static site (HTML, CSS and JavaScript with Plotly.js) that runs
 entirely in the browser, so Cloudflare can host it with no server. All data is synthetic,
@@ -65,13 +65,13 @@ Paste this where the dashboard should appear (swap in your custom domain if you 
 ```html
 <iframe
   src="https://bluewave-dashboard.jackfarquhar3146.workers.dev/?embed=1"
-  title="Bluewave Analytics dashboard"
+  title="Data Beyond sample dashboard"
   style="display:block; width:100%; height:1550px; border:0; border-radius:16px; background:#F5F7FA;">
 </iframe>
 <script src="https://bluewave-dashboard.jackfarquhar3146.workers.dev/assets/embed-host.js"></script>
 ```
 
-- `?embed=1` hides the dashboard's own title bar and footer; the tabs and filters stay.
+- `?embed=1` hides the dashboard's Data Beyond header and footer; the tabs and filters stay.
 - The script resizes the iframe to fit the dashboard exactly, and keeps it fitted as the window
   is resized, the phone is rotated, filters change or tabs are switched.
 - `height:1550px` is only the starting height until the dashboard loads.
