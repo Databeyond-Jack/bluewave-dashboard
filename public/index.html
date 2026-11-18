@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bluewave Analytics</title>
+  <meta name="description" content="Interactive sample dashboard: revenue and workforce analytics with synthetic data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/embed.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js" defer></script>
+  <script src="assets/js/main.js" type="module"></script>
+</head>
+<body>
+<div id="page" class="page tab-sales">
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <div class="logo"><span></span></div>
+        <div>
+          <h1>Bluewave Analytics</h1>
+          <p class="tagline" id="tagline">Sample business performance</p>
+        </div>
+      </div>
+      <div class="live-pill only-sales"><span class="pulse"></span>Live</div>
+    </div>
+
+    <div class="hero-inner tabbar">
+      <div id="tab" class="tabs" role="radiogroup" aria-label="Dashboard"></div>
+    </div>
+
+    <div class="filters hero-inner only-sales">
+      <div class="filter"><label>Period</label><div id="period" class="segmented" role="radiogroup" aria-label="Period"></div></div>
+      <div class="filter"><label>Region</label><div id="regions" class="chips" role="group" aria-label="Region"></div></div>
+      <div class="filter"><label>Product</label><div id="products" class="chips" role="group" aria-label="Product"></div></div>
+    </div>
+    <div class="filters hero-inner only-workforce">
+      <div class="filter"><label>Department</label><div id="wf-depts" class="chips" role="group" aria-label="Department"></div></div>
+      <div class="filter"><label>Location</label><div id="wf-locs" class="chips" role="group" aria-label="Location"></div></div>
+    </div>
+  </header>
+
+  <!-- Revenue tab -->
+  <main class="grid only-sales">
+    <section class="card kpi"><div class="kpi-label">Revenue</div><div class="kpi-value"><span id="cu-revenue"></span></div>
+      <div id="delta-revenue" class="delta-row"></div><div id="spark-revenue" class="spark"></div></section>
+    <section class="card kpi"><div class="kpi-label">Orders</div><div class="kpi-value"><span id="cu-orders"></span></div>
+      <div id="delta-orders" class="delta-row"></div><div id="spark-orders" class="spark"></div></section>
+    <section class="card kpi"><div class="kpi-label">Avg order value</div><div class="kpi-value"><span id="cu-aov"></span></div>
+      <div id="delta-aov" class="delta-row"></div><div id="spark-aov" class="spark"></div></section>
+    <section class="card kpi"><div class="kpi-label">Active customers</div><div class="kpi-value"><span id="cu-customers"></span></div>
+      <div id="delta-customers" class="delta-row"></div><div id="spark-customers" class="spark"></div></section>
+
+    <section class="card span-8"><div class="card-head"><div><h3>Revenue trend</h3><p class="sub">Total revenue with rolling average</p></div></div>
+      <div id="trend" class="chart" style="height:300px"></div></section>
+    <section class="card span-4"><div class="card-head"><div><h3>Revenue flow</h3><p class="sub">From region to product, selected period</p></div></div>
+      <div id="flow" class="chart" style="height:300px"></div></section>
+
+    <section class="card span-5"><div class="card-head"><div><h3>Cumulative revenue by region</h3><p class="sub">All time, month by month</p></div></div>
+      <div id="cumulative" class="chart" style="height:300px"></div></section>
+    <section class="card span-3"><div class="card-head"><div><h3>Revenue by region</h3><p class="sub">Selected period</p></div></div>
+      <div id="regionbars" class="chart" style="height:260px"></div></section>
+    <section class="card span-4"><div class="card-head"><div><h3>Live orders</h3><p class="sub">Streaming every 2 seconds</p></div><span class="pulse small"></span></div>
+      <div class="today"><span class="kpi-label">Today</span><div class="today-value"><span id="cu-today"></span></div></div>
+      <div id="live" class="chart" style="height:130px"></div>
+      <ul id="feed" class="feed"></ul></section>
+
+    <section class="card span-7"><div class="card-head"><div><h3>When customers buy</h3><p class="sub">Orders by weekday and hour</p></div></div>
+      <div id="heatmap" class="chart" style="height:250px"></div></section>
+    <section class="card span-5"><div class="card-head"><div><h3>Top accounts</h3><p class="sub">Highest revenue in selected period</p></div></div>
+      <div id="accounts" class="accounts"></div></section>
+  </main>
+
+  <!-- Workforce tab -->
+  <main class="grid only-workforce">
+    <section class="card kpi"><div class="kpi-label">Headcount</div><div class="kpi-value"><span id="cu-wf_headcount"></span></div>
+      <div id="delta-wf_headcount" class="delta-row"></div><div id="spark-wf_headcount" class="spark"></div></section>
+    <section class="card kpi"><div class="kpi-label">Full-time equivalent</div><div class="kpi-value"><span id="cu-wf_fte"></span></div>
+      <div id="delta-wf_fte" class="delta-row"></div><div id="spark-wf_fte" class="spark"></div></section>
+    <section class="card kpi"><div class="kpi-label">Staff turnover (12m)</div><div class="kpi-value"><span id="cu-wf_turnover"></span></div>
+      <div id="delta-wf_turnover" class="delta-row"></div><div id="spark-wf_turnover" class="spark"></div></section>
+    <section class="card kpi"><div class="kpi-label">Sickness absence (12m)</div><div class="kpi-value"><span id="cu-wf_absence"></span></div>
+      <div id="delta-wf_absence" class="delta-row"></div><div id="spark-wf_absence" class="spark"></div></section>
+
+    <section class="card span-8"><div class="card-head"><div><h3>Starters, leavers &amp; headcount</h3><p class="sub">Monthly, last 24 months</p></div></div>
+      <div id="wf-movement" class="chart" style="height:300px"></div></section>
+    <section class="card span-4"><div class="card-head"><div><h3>Staff by department</h3><p class="sub">Current headcount by contract type</p></div></div>
+      <div id="wf-departments" class="chart" style="height:300px"></div></section>
+
+    <section class="card span-5"><div class="card-head"><div><h3>Age &amp; gender profile</h3><p class="sub">Current staff by age band</p></div></div>
+      <div id="wf-pyramid" class="chart" style="height:300px"></div></section>
+    <section class="card span-3"><div class="card-head"><div><h3>Length of service</h3><p class="sub">Current staff by years since joining</p></div></div>
+      <div id="wf-service" class="chart" style="height:260px"></div></section>
+    <section class="card span-4"><div class="card-head"><div><h3>Sickness absence rate</h3><p class="sub">% of available working days lost</p></div></div>
+      <div id="wf-absence" class="chart" style="height:260px"></div></section>
+
+    <section class="card span-7"><div class="card-head"><div><h3>Department scorecard</h3><p class="sub">Rolling 12 months · red = needs attention</p></div></div>
+      <div class="scorecard-wrap"><div id="wf-scorecard" class="scorecard"></div></div></section>
+    <section class="card span-5"><div class="card-head"><div><h3>Why people leave</h3><p class="sub">Leavers in the last 12 months by reason</p></div></div>
+      <div id="wf-reasons" class="chart" style="height:290px"></div></section>
+  </main>
+
+  <footer class="foot">Synthetic sample data · built with Plotly.js</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Cloudflare Pages response headers.
+# No X-Frame-Options / frame-ancestors: the dashboard is meant to be embedded in an iframe.
+# To allow only your own site to embed it, add under /*:
+#   Content-Security-Policy: frame-ancestors 'self' https://databeyond.uk https://www.databeyond.uk
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/assets/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/embed-demo.html
+  X-Robots-Tag: noindex

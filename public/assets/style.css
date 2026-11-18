@@ -27,7 +27,6 @@ h1, h3, p { margin: 0; }
   background: var(--blue);
   color: white;
   padding: 28px 0 96px;
-  --Dash-Fill-Interactive-Strong: white;  /* Dash's hover/focus accent (purple by default) */
   position: relative;
   overflow: hidden;
 }
@@ -197,7 +196,7 @@ h1, h3, p { margin: 0; }
 }
 .tabs label:hover { color: white; }
 .tabs input { position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0; }
-.hero .tabs label:has(input:checked) { color: white; border-bottom-color: white; }  /* beats Dash's purple .selected */
+.hero .tabs label:has(input:checked) { color: white; border-bottom-color: white; }
 .tabbar + .filters { margin-top: 20px; }
 .filters + .filters { margin-top: 20px; }
 .page.tab-sales .only-workforce, .page.tab-workforce .only-sales { display: none !important; }
