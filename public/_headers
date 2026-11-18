@@ -8,8 +8,10 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+# Browsers re-check assets on each visit (a cheap 304 via ETag when unchanged), so a new
+# deploy shows up straight away instead of after a stale cached copy expires.
 /assets/*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
 
 /embed-demo.html
   X-Robots-Tag: noindex
