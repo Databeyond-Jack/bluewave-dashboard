@@ -1,5 +1,5 @@
-import * as D from "./data.js";
-import * as C from "./charts.js";
+import * as D from "./data.js?v=3";
+import * as C from "./charts.js?v=3";
 
 const $ = (id) => document.getElementById(id);
 const CONFIG = { displayModeBar: false, responsive: true };
